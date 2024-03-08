@@ -1,27 +1,13 @@
-
-
-def add(x, y):
-    return x + y
-
-def subtract(x, y):
-    return x - y
-
-def multiply(x, y):
-    return x * y
-
-def divide(x, y):
-    return x / y
-
 def result(x, op, y):
     # get and return the result
-    return operations[op](x, y)
+    return ops[op](x, y)
 
 def calculator():
     # get the user supplied input
     a = int(input("\nFirst number: "))
     print("\nChoose one of the following operations: ")
     # use a for loop to iterate through possible operation inputs
-    for k in operations:
+    for k in ops:
         print(k)
     again = True
     while again:
@@ -36,11 +22,12 @@ def calculator():
             calculator()
 # main
 # put the four operations into a dictionary
-operations = {
-    "+": add,
-    "-": subtract,
-    "*": multiply,
-    "/": divide
+# using expression based functions (lambdas)
+ops = {
+    "+": lambda x, y: x + y,
+    "-": lambda x, y: x - y,
+    "*": lambda x, y: x * y,
+    "/": lambda x, y: x / y
 }
 
 calculator()
